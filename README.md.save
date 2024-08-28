@@ -1,0 +1,14 @@
+# Ubuntu_Scripts
+Ubuntu Software Installation Scripts 
+
+for run the script file clone the repository on your local:
+
+git clone https://github.com/DeepDN/Ubuntu_Scripts.git
+
+then nevigate to your specific software folder.
+hit ls command
+now you can able to see .sh file in white colour
+hit the command chmod +x <.sh File Name>
+
+then check with ls -la the and now the file colour change to green
+then run command ./<.sh File Name>
