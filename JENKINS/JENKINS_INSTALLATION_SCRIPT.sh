@@ -44,4 +44,4 @@ xdg-open http://localhost:8080
 #Jenkins Version
 echo "Your Jenkins version is $version "
 
-echo "Thank you, Deepak Nemade"
+echo "Congratualation, Jenkins is successfully installed on your system. Thank you, Deepak Nemade"
