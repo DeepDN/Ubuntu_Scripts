@@ -11,4 +11,4 @@ sudo apt update
 sudo apt install owasp-zap
 
 
-echo "congratualation, OWASP ZAP is successfully install on your system, Thank You. Deepak Nemade"
+echo "congratualation, OWASP ZAP is successfully install on your system, Thank You. Deepak Nemade "
