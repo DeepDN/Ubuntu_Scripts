@@ -135,11 +135,3 @@ To run all `.sh` files in selected subdirectories, use the following steps:
 
 Feel free to contribute to this repository by adding more installation scripts or improving the existing ones. Pull requests are welcome!
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-### Summary:
-- The `README.md` now includes instructions on how to run scripts from multiple subdirectories, along with the original instructions for setting up and running individual scripts.
-- The instructions cover the process from cloning the repository to executing scripts in selected subdirectories.
