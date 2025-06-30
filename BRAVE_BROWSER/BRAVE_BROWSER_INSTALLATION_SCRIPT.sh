@@ -1,5 +1,23 @@
 #!/bin/bash
-
+#===============================================================================
+#
+#          FILE:  BRAVE_BROWSER_INSTALLATION_SCRIPT.sh
+#
+#         USAGE:  ./BRAVE_BROWSER_INSTALLATION_SCRIPT.sh
+#
+#   DESCRIPTION:  Using this Script you can able to install Brave Browser on your system.
+#                 
+#
+#       OPTIONS:  ---
+#  REQUIREMENTS:  bash
+#          BUGS:  ---
+#         NOTES:  ---
+#        AUTHOR:  Deepak Nemade (devops.with.deepak@gmail.com)
+#       COMPANY:  
+#       VERSION:  1.0
+#       CREATED:  2025-06-30
+#      REVISION:  ---
+#===============================================================================
 #Installing Curl
 sudo apt install curl -y
 

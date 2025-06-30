@@ -1,5 +1,23 @@
 #!/bin/bash
-
+#===============================================================================
+#
+#          FILE:  AWSCLI_INSTALLATION_SCRIPT.sh
+#
+#         USAGE:  ./AWSCLI_INSTALLATION_SCRIPT.sh
+#
+#   DESCRIPTION:  Using this Script you can able to install AWS CLI on your system.
+#                 
+#
+#       OPTIONS:  ---
+#  REQUIREMENTS:  bash
+#          BUGS:  ---
+#         NOTES:  ---
+#        AUTHOR:  Deepak Nemade (devops.with.deepak@gmail.com)
+#       COMPANY:  
+#       VERSION:  1.0
+#       CREATED:  2025-06-30
+#      REVISION:  ---
+#===============================================================================
 
 version=$(aws --version)
 
