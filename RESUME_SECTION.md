@@ -2,6 +2,7 @@
 
 ## Ubuntu Application Installer v2.0 - Professional Bundle
 **Role:** Lead Developer & System Architect | **Duration:** 2024 | **Status:** Production Ready
+**Created by:** Deepak Nemade (DN)
 
 ### 🎯 **Project Overview**
 Designed and developed a comprehensive, enterprise-grade automation system for Ubuntu application management, serving developers, DevOps engineers, security professionals, and system administrators.
