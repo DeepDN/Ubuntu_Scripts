@@ -1,4 +1,3 @@
-################################################################################################################################################################################
 # Ubuntu Application Installer v2.0 - Professional Bundle
 
 A comprehensive, interactive automation system for installing essential applications on Ubuntu. This repository provides organized installation scripts for developers, testers, system administrators, DevOps professionals, security researchers, and power users.
