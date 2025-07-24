@@ -1,7 +1,7 @@
 # 🚀 Professional Portfolio Showcase
 
 ## Ubuntu Application Installer v2.0 - Professional Bundle
-**Created by: Deepak**
+**Created by: Deepak Nemade (DN)**
 
 ---
 
@@ -182,7 +182,7 @@ cd categories/development
 
 ## 📞 **Contact & Collaboration**
 
-**Created by: Deepak**
+**Created by: Deepak Nemade (DN)**
 
 This project showcases advanced technical skills in:
 - System Administration & Automation

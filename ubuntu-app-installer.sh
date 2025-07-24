@@ -22,7 +22,7 @@ print_color() {
     printf "${1}${2}${NC}\n"
 }
 
-# Function to print header
+# Function to print header with DN branding
 print_header() {
     clear
     print_color $CYAN "=================================================================="
@@ -31,6 +31,16 @@ print_header() {
     print_color $YELLOW "  Automated installation scripts for developers, testers,"
     print_color $YELLOW "  system administrators, and DevOps professionals"
     print_color $CYAN "=================================================================="
+    echo
+    print_color $RED "██████╗ ███╗   ██╗"
+    print_color $RED "██╔══██╗████╗  ██║"
+    print_color $RED "██║  ██║██╔██╗ ██║"
+    print_color $RED "██║  ██║██║╚██╗██║"
+    print_color $RED "██████╔╝██║ ╚████║"
+    print_color $RED "╚═════╝ ╚═╝  ╚═══╝"
+    echo
+    print_color $BLUE "    Created by: Deepak Nemade (DN)"
+    print_color $BLUE "    Professional System Administrator & DevOps Engineer"
     echo
 }
 

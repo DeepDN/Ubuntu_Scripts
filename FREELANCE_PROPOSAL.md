@@ -1,7 +1,7 @@
 # 💼 Freelance Service Proposal
 
 ## Professional System Administration & Automation Services
-**Offered by: Deepak**
+**Offered by: Deepak Nemade (DN)**
 
 ---
 
