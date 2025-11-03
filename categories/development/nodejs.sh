@@ -1,42 +1,53 @@
 #!/bin/bash
 
-# Node.js and NPM Installation Script
-# This script installs the latest LTS version of Node.js and NPM
+# Node.js Installation Script - NVM Method (Recommended)
+# This script installs Node.js using NVM (Node Version Manager)
 
 set -e
 
-echo "Installing Node.js and NPM..."
+echo "Installing Node.js via NVM (Node Version Manager)..."
+echo "NVM allows you to install and manage multiple Node.js versions"
 
-# Update package list
-sudo apt update
-
-# Install curl if not present
-sudo apt install -y curl
-
-# Install Node.js using NodeSource repository
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt install -y nodejs
-
-# Install Yarn package manager
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update
-sudo apt install -y yarn
+# Check if NVM is already installed
+if command -v nvm &> /dev/null; then
+    echo "NVM is already installed. Installing latest LTS Node.js..."
+    nvm install --lts
+    nvm use --lts
+    nvm alias default lts/*
+else
+    echo "Installing NVM first..."
+    
+    # Install dependencies
+    sudo apt-get update
+    sudo apt-get install -y curl
+    
+    # Download and install NVM
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    
+    # Reload bash profile
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+    
+    # Install latest LTS Node.js
+    nvm install --lts
+    nvm use --lts
+    nvm alias default lts/*
+fi
 
 # Install useful global packages
-sudo npm install -g @angular/cli
-sudo npm install -g create-react-app
-sudo npm install -g vue-cli
-sudo npm install -g typescript
-sudo npm install -g nodemon
-sudo npm install -g pm2
-sudo npm install -g eslint
-sudo npm install -g prettier
+npm install -g @angular/cli create-react-app typescript nodemon pm2 eslint prettier
 
 # Verify installation
+echo "NVM version: $(nvm --version)"
 echo "Node.js version: $(node --version)"
 echo "NPM version: $(npm --version)"
-echo "Yarn version: $(yarn --version)"
 
-echo "Node.js, NPM, and Yarn installed successfully!"
-echo "Global packages installed: Angular CLI, Create React App, Vue CLI, TypeScript, Nodemon, PM2, ESLint, Prettier"
+echo "Node.js installed successfully via NVM!"
+echo ""
+echo "Restart your terminal or run 'source ~/.bashrc' to use NVM"
+echo "Useful NVM commands:"
+echo "  nvm install 18      # Install Node.js v18"
+echo "  nvm use 18          # Switch to Node.js v18"
+echo "  nvm list            # List installed versions"
+echo "  nvm current         # Show current version"
