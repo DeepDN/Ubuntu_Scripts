@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Ubuntu Application Installer
-# Comprehensive automation script for installing various applications
-# Author: Ubuntu Scripts Repository
-# Version: 2.0
+# Ubuntu Application Installer v3.0
+# Professional automation script for installing development tools and applications
+# Author: Deepak Nemade (DN)
+# Updated: November 2025
 
 set -e
 
@@ -15,21 +15,21 @@ BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 WHITE='\033[1;37m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
 # Function to print colored output
 print_color() {
     printf "${1}${2}${NC}\n"
 }
 
-# Function to print header with DN branding
+# Function to print professional header
 print_header() {
     clear
     print_color $CYAN "=================================================================="
-    print_color $WHITE "           UBUNTU APPLICATION INSTALLER v2.0"
+    print_color $WHITE "           UBUNTU APPLICATION INSTALLER v3.0"
     print_color $CYAN "=================================================================="
-    print_color $YELLOW "  Automated installation scripts for developers, testers,"
-    print_color $YELLOW "  system administrators, and DevOps professionals"
+    print_color $YELLOW "  Professional automation for developers, DevOps engineers,"
+    print_color $YELLOW "  system administrators, and security professionals"
     print_color $CYAN "=================================================================="
     echo
     print_color $RED "██████╗ ███╗   ██╗"
@@ -56,219 +56,34 @@ check_root() {
 # Function to update system
 update_system() {
     print_color $BLUE "Updating system packages..."
-    sudo apt update && sudo apt upgrade -y
+    sudo apt-get update && sudo apt-get upgrade -y
     print_color $GREEN "System updated successfully!"
 }
 
-# Function to show category menu
-show_category_menu() {
+# Function to show main menu
+show_main_menu() {
     print_header
     print_color $WHITE "Select Application Category:"
     echo
-    print_color $GREEN "1.  Development Tools"
-    print_color $GREEN "2.  Databases"
-    print_color $GREEN "3.  DevOps & Cloud Tools"
-    print_color $GREEN "4.  Testing Tools"
-    print_color $GREEN "5.  System Administration"
-    print_color $GREEN "6.  Productivity Applications"
-    print_color $GREEN "7.  Security & Hacking Tools"
-    print_color $GREEN "8.  Multimedia Applications"
-    print_color $GREEN "9.  Web Browsers"
-    print_color $GREEN "10. System Utilities & Monitoring"
+    print_color $GREEN "1.  Development Tools (Git, Node.js, Python, Docker, etc.)"
+    print_color $GREEN "2.  Databases (PostgreSQL, MySQL, MongoDB, Redis)"
+    print_color $GREEN "3.  DevOps & Cloud Tools (Docker, Kubernetes, Terraform, AWS)"
+    print_color $GREEN "4.  Testing Tools (Postman, Cypress, JMeter, Selenium)"
+    print_color $GREEN "5.  System Administration (Nginx, Apache, Monitoring)"
+    print_color $GREEN "6.  Security Tools (Nmap, Wireshark, Burp Suite, OWASP ZAP)"
+    print_color $GREEN "7.  Productivity Apps (Slack, Discord, Teams, Browsers)"
+    print_color $GREEN "8.  Multimedia (VLC, OBS, GIMP, Audacity)"
     echo
-    print_color $YELLOW "11. Install All Essential Development Tools"
-    print_color $YELLOW "12. Install All DevOps Tools"
-    print_color $YELLOW "13. Install All Testing Tools"
-    print_color $YELLOW "14. Install All Security Tools"
-    print_color $YELLOW "15. Install All Monitoring Tools"
+    print_color $YELLOW "Quick Install Options:"
+    print_color $YELLOW "9.  Essential Development Stack (Git, Node.js, Docker, VS Code)"
+    print_color $YELLOW "10. DevOps Professional Stack (Docker, K8s, Terraform, AWS CLI)"
+    print_color $YELLOW "11. Security Testing Stack (Nmap, Burp, OWASP ZAP, Wireshark)"
+    print_color $YELLOW "12. Full Stack Developer Setup (All development tools)"
     echo
-    print_color $CYAN "Multiple Selection Mode:"
-    print_color $CYAN "16. Select Multiple Categories (e.g., 1,3,7)"
+    print_color $CYAN "13. System Update & Essential Tools"
+    print_color $CYAN "14. Show Available Applications"
     echo
     print_color $PURPLE "0.  Exit"
-    echo
-}
-
-# Function to show development tools
-show_development_menu() {
-    print_header
-    print_color $WHITE "Development Tools:"
-    echo
-    print_color $GREEN "1.  Visual Studio Code"
-    print_color $GREEN "2.  Git & GitHub CLI"
-    print_color $GREEN "3.  Node.js & NPM"
-    print_color $GREEN "4.  Python & Pip"
-    print_color $GREEN "5.  Java Development Kit (OpenJDK)"
-    print_color $GREEN "6.  Go Programming Language"
-    print_color $GREEN "7.  Rust Programming Language"
-    print_color $GREEN "8.  PHP & Composer"
-    print_color $GREEN "9.  Ruby & Rails"
-    print_color $GREEN "10. Vim/Neovim"
-    print_color $GREEN "11. Sublime Text"
-    print_color $GREEN "12. Atom Editor (Deprecated)"
-    print_color $GREEN "13. Android Studio"
-    print_color $GREEN "14. Flutter SDK"
-    print_color $GREEN "15. Warp Terminal"
-    echo
-    print_color $PURPLE "0.  Back to main menu"
-    echo
-}
-
-# Function to show database menu
-show_database_menu() {
-    print_header
-    print_color $WHITE "Database Tools:"
-    echo
-    print_color $GREEN "1.  PostgreSQL & pgAdmin"
-    print_color $GREEN "2.  MySQL & MySQL Workbench"
-    print_color $GREEN "3.  MongoDB & MongoDB Compass"
-    print_color $GREEN "4.  Redis"
-    print_color $GREEN "5.  SQLite & SQLite Browser"
-    print_color $GREEN "6.  DBeaver (Universal Database Tool)"
-    echo
-    print_color $PURPLE "0.  Back to main menu"
-    echo
-}
-
-# Function to show DevOps menu
-show_devops_menu() {
-    print_header
-    print_color $WHITE "DevOps & Cloud Tools:"
-    echo
-    print_color $GREEN "1.  Docker & Docker Compose"
-    print_color $GREEN "2.  Kubernetes (kubectl, minikube)"
-    print_color $GREEN "3.  Terraform"
-    print_color $GREEN "4.  Ansible"
-    print_color $GREEN "5.  Jenkins"
-    print_color $GREEN "6.  AWS CLI"
-    echo
-    print_color $PURPLE "0.  Back to main menu"
-    echo
-}
-
-# Function to show testing menu
-show_testing_menu() {
-    print_header
-    print_color $WHITE "Testing Tools:"
-    echo
-    print_color $GREEN "1.  Postman (API Testing)"
-    print_color $GREEN "2.  Cypress (E2E Testing)"
-    print_color $GREEN "3.  Selenium WebDriver"
-    print_color $GREEN "4.  JMeter (Load Testing)"
-    print_color $GREEN "5.  Newman (Postman CLI)"
-    print_color $GREEN "6.  Artillery (Load Testing)"
-    print_color $GREEN "7.  K6 (Load Testing)"
-    print_color $GREEN "8.  Playwright (Browser Testing)"
-    print_color $GREEN "9.  Insomnia (API Client)"
-    print_color $GREEN "10. REST Client Tools"
-    echo
-    print_color $PURPLE "0.  Back to main menu"
-    echo
-}
-
-# Function to show monitoring menu
-show_monitoring_menu() {
-    print_header
-    print_color $WHITE "System Monitoring & Utilities:"
-    echo
-    print_color $GREEN "1.  Htop (Interactive Process Viewer)"
-    print_color $GREEN "2.  Glances (System Monitoring)"
-    print_color $GREEN "3.  Netdata (Real-time Performance Monitoring)"
-    print_color $GREEN "4.  Prometheus & Grafana"
-    print_color $GREEN "5.  Zabbix Agent"
-    print_color $GREEN "6.  Nagios Core"
-    print_color $GREEN "7.  Collectd (System Statistics)"
-    print_color $GREEN "8.  Monit (Process Monitoring)"
-    print_color $GREEN "9.  Fail2ban (Intrusion Prevention)"
-    print_color $GREEN "10. Logwatch (Log Analysis)"
-    print_color $GREEN "11. Neofetch (System Information)"
-    print_color $GREEN "12. Bashtop (Resource Monitor)"
-    print_color $GREEN "13. Iotop (I/O Monitoring)"
-    print_color $GREEN "14. Nethogs (Network Bandwidth Monitor)"
-    print_color $GREEN "15. Tcpdump (Network Packet Analyzer)"
-    echo
-    print_color $PURPLE "0.  Back to main menu"
-    echo
-}
-
-# Function to show browser menu
-show_browser_menu() {
-    print_header
-    print_color $WHITE "Web Browsers:"
-    echo
-    print_color $GREEN "1.  Google Chrome"
-    print_color $GREEN "2.  Firefox Developer Edition"
-    print_color $GREEN "3.  Brave Browser"
-    print_color $GREEN "4.  Opera Browser"
-    print_color $GREEN "5.  Microsoft Edge"
-    print_color $GREEN "6.  Vivaldi Browser"
-    print_color $GREEN "7.  Tor Browser"
-    echo
-    print_color $PURPLE "0.  Back to main menu"
-    echo
-}
-
-# Function to show productivity menu
-show_productivity_menu() {
-    print_header
-    print_color $WHITE "Productivity Applications:"
-    echo
-    print_color $GREEN "1.  Slack"
-    print_color $GREEN "2.  Discord"
-    print_color $GREEN "3.  Microsoft Teams"
-    print_color $GREEN "4.  Zoom"
-    print_color $GREEN "5.  Notion"
-    print_color $GREEN "6.  Obsidian"
-    print_color $GREEN "7.  Keybase"
-    echo
-    print_color $PURPLE "0.  Back to main menu"
-    echo
-}
-
-# Function to show multimedia menu
-show_multimedia_menu() {
-    print_header
-    print_color $WHITE "Multimedia Applications:"
-    echo
-    print_color $GREEN "1.  VLC Media Player"
-    print_color $GREEN "2.  OBS Studio"
-    print_color $GREEN "3.  GIMP"
-    print_color $GREEN "4.  Audacity"
-    echo
-    print_color $PURPLE "0.  Back to main menu"
-    echo
-}
-
-# Function to show system admin menu
-show_sysadmin_menu() {
-    print_header
-    print_color $WHITE "System Administration Tools:"
-    echo
-    print_color $GREEN "1.  Nginx"
-    print_color $GREEN "2.  Apache2"
-    print_color $GREEN "3.  Fail2ban"
-    echo
-    print_color $PURPLE "0.  Back to main menu"
-    echo
-}
-
-# Function to show system admin menu
-show_sysadmin_menu() {
-    print_header
-    print_color $WHITE "System Administration Tools:"
-    echo
-    print_color $GREEN "1.  Nginx"
-    print_color $GREEN "2.  Apache2"
-    print_color $GREEN "3.  Fail2ban"
-    print_color $GREEN "4.  UFW Firewall"
-    print_color $GREEN "5.  Htop & System Monitoring"
-    print_color $GREEN "6.  Netdata"
-    print_color $GREEN "7.  Zabbix Agent"
-    print_color $GREEN "8.  OpenSSH Server"
-    print_color $GREEN "9.  Certbot (Let's Encrypt)"
-    print_color $GREEN "10. Logrotate"
-    echo
-    print_color $PURPLE "0.  Back to main menu"
     echo
 }
 
@@ -281,68 +96,83 @@ install_application() {
     if [[ -f "$script_path" ]]; then
         print_color $BLUE "Installing $app_name..."
         chmod +x "$script_path"
-        bash "$script_path"
-        if [[ $? -eq 0 ]]; then
+        if bash "$script_path"; then
             print_color $GREEN "$app_name installed successfully!"
         else
             print_color $RED "Failed to install $app_name"
+            return 1
         fi
     else
         print_color $RED "Installation script not found: $script_path"
+        return 1
     fi
     
     echo
     read -p "Press Enter to continue..."
 }
 
-# Function to install bulk applications
-install_bulk() {
-    local category=$1
-    print_color $BLUE "Installing all $category applications..."
+# Function to install essential development stack
+install_essential_dev() {
+    print_color $BLUE "Installing Essential Development Stack..."
     
-    for script in categories/${category}/*.sh; do
-        if [[ -f "$script" ]]; then
-            app_name=$(basename "$script" .sh)
-            print_color $YELLOW "Installing $app_name..."
-            chmod +x "$script"
-            bash "$script"
+    local apps=("git" "nvm" "docker" "vscode" "python")
+    local categories=("development" "development" "devops" "development" "development")
+    
+    for i in "${!apps[@]}"; do
+        install_application "${categories[$i]}" "${apps[$i]}"
+    done
+    
+    print_color $GREEN "Essential Development Stack installation completed!"
+}
+
+# Function to install DevOps professional stack
+install_devops_stack() {
+    print_color $BLUE "Installing DevOps Professional Stack..."
+    
+    local apps=("docker" "kubernetes" "terraform" "ansible" "aws-cli" "jenkins")
+    
+    for app in "${apps[@]}"; do
+        install_application "devops" "$app"
+    done
+    
+    print_color $GREEN "DevOps Professional Stack installation completed!"
+}
+
+# Function to install security testing stack
+install_security_stack() {
+    print_color $BLUE "Installing Security Testing Stack..."
+    
+    local apps=("nmap" "wireshark" "burpsuite" "owasp-zap" "metasploit" "john" "wazuh" "usb-blocker")
+    
+    for app in "${apps[@]}"; do
+        install_application "security" "$app"
+    done
+    
+    print_color $GREEN "Security Testing Stack installation completed!"
+}
+
+# Function to show available applications
+show_available_apps() {
+    print_header
+    print_color $WHITE "Available Applications by Category:"
+    echo
+    
+    for category in categories/*/; do
+        if [[ -d "$category" ]]; then
+            category_name=$(basename "$category")
+            print_color $CYAN "$(echo $category_name | tr '-' ' ' | tr '[:lower:]' '[:upper:]'):"
+            
+            for script in "$category"*.sh; do
+                if [[ -f "$script" ]]; then
+                    app_name=$(basename "$script" .sh)
+                    print_color $GREEN "  • $app_name"
+                fi
+            done
+            echo
         fi
     done
     
-    print_color $GREEN "Bulk installation completed!"
-    echo
     read -p "Press Enter to continue..."
-}
-
-# Function to handle multiple category selection
-handle_multiple_selection() {
-    print_header
-    print_color $WHITE "Multiple Category Selection:"
-    print_color $YELLOW "Enter category numbers separated by commas (e.g., 1,3,7,10):"
-    echo
-    print_color $GREEN "1=Development, 2=Databases, 3=DevOps, 4=Testing, 5=SysAdmin"
-    print_color $GREEN "6=Productivity, 7=Security, 8=Multimedia, 9=Browsers, 10=Monitoring"
-    echo
-    read -p "Enter your selection: " selection
-    
-    IFS=',' read -ra CATEGORIES <<< "$selection"
-    
-    for category in "${CATEGORIES[@]}"; do
-        category=$(echo "$category" | xargs) # trim whitespace
-        case $category in
-            1) install_bulk "development" ;;
-            2) install_bulk "databases" ;;
-            3) install_bulk "devops" ;;
-            4) install_bulk "testing" ;;
-            5) install_bulk "system-admin" ;;
-            6) install_bulk "productivity" ;;
-            7) install_bulk "security" ;;
-            8) install_bulk "multimedia" ;;
-            9) install_bulk "browsers" ;;
-            10) install_bulk "system-utilities" ;;
-            *) print_color $RED "Invalid category: $category" ;;
-        esac
-    done
 }
 
 # Main function
@@ -350,206 +180,27 @@ main() {
     check_root
     
     while true; do
-        show_category_menu
-        read -p "Enter your choice [0-16]: " choice
+        show_main_menu
+        read -p "Enter your choice [0-14]: " choice
         
         case $choice in
-            1)
-                while true; do
-                    show_development_menu
-                    read -p "Enter your choice [0-15]: " dev_choice
-                    case $dev_choice in
-                        1) install_application "development" "vscode" ;;
-                        2) install_application "development" "git" ;;
-                        3) install_application "development" "nodejs" ;;
-                        4) install_application "development" "python" ;;
-                        5) install_application "development" "java" ;;
-                        6) install_application "development" "golang" ;;
-                        7) install_application "development" "rust" ;;
-                        8) install_application "development" "php" ;;
-                        9) install_application "development" "ruby" ;;
-                        10) install_application "development" "vim" ;;
-                        11) install_application "development" "sublime" ;;
-                        12) install_application "development" "atom" ;;
-                        13) install_application "development" "android-studio" ;;
-                        14) install_application "development" "flutter" ;;
-                        15) install_application "development" "warp" ;;
-                        0) break ;;
-                        *) print_color $RED "Invalid option!" ;;
-                    esac
-                done
-                ;;
-            2)
-                while true; do
-                    show_database_menu
-                    read -p "Enter your choice [0-6]: " db_choice
-                    case $db_choice in
-                        1) install_application "databases" "postgresql" ;;
-                        2) install_application "databases" "mysql" ;;
-                        3) install_application "databases" "mongodb" ;;
-                        4) install_application "databases" "redis" ;;
-                        5) install_application "databases" "sqlite" ;;
-                        6) install_application "databases" "dbeaver" ;;
-                        0) break ;;
-                        *) print_color $RED "Invalid option!" ;;
-                    esac
-                done
-                ;;
-            3)
-                while true; do
-                    show_devops_menu
-                    read -p "Enter your choice [0-6]: " devops_choice
-                    case $devops_choice in
-                        1) install_application "devops" "docker" ;;
-                        2) install_application "devops" "kubernetes" ;;
-                        3) install_application "devops" "terraform" ;;
-                        4) install_application "devops" "ansible" ;;
-                        5) install_application "devops" "jenkins" ;;
-                        6) install_application "devops" "aws-cli" ;;
-                        0) break ;;
-                        *) print_color $RED "Invalid option!" ;;
-                    esac
-                done
-                ;;
-            4)
-                while true; do
-                    show_testing_menu
-                    read -p "Enter your choice [0-10]: " test_choice
-                    case $test_choice in
-                        1) install_application "testing" "postman" ;;
-                        2) install_application "testing" "cypress" ;;
-                        3) install_application "testing" "selenium" ;;
-                        4) install_application "testing" "jmeter" ;;
-                        5) install_application "testing" "owasp-zap" ;;
-                        6) install_application "testing" "burpsuite" ;;
-                        7) install_application "testing" "newman" ;;
-                        8) install_application "testing" "artillery" ;;
-                        9) install_application "testing" "k6" ;;
-                        10) install_application "testing" "playwright" ;;
-                        0) break ;;
-                        *) print_color $RED "Invalid option!" ;;
-                    esac
-                done
-                ;;
-            5)
-                while true; do
-                    show_sysadmin_menu
-                    read -p "Enter your choice [0-3]: " admin_choice
-                    case $admin_choice in
-                        1) install_application "system-admin" "nginx" ;;
-                        2) install_application "system-admin" "apache2" ;;
-                        3) install_application "system-admin" "fail2ban" ;;
-                        0) break ;;
-                        *) print_color $RED "Invalid option!" ;;
-                    esac
-                done
-                ;;
-            6)
-                while true; do
-                    show_productivity_menu
-                    read -p "Enter your choice [0-7]: " prod_choice
-                    case $prod_choice in
-                        1) install_application "productivity" "slack" ;;
-                        2) install_application "productivity" "discord" ;;
-                        3) install_application "productivity" "teams" ;;
-                        4) install_application "productivity" "zoom" ;;
-                        5) install_application "productivity" "notion" ;;
-                        6) install_application "productivity" "obsidian" ;;
-                        7) install_application "productivity" "keybase" ;;
-                        0) break ;;
-                        *) print_color $RED "Invalid option!" ;;
-                    esac
-                done
-                ;;
-            7)
-                while true; do
-                    show_security_menu
-                    read -p "Enter your choice [0-15]: " sec_choice
-                    case $sec_choice in
-                        1) install_application "security" "owasp-zap" ;;
-                        2) install_application "security" "burpsuite" ;;
-                        3) install_application "security" "nmap" ;;
-                        4) install_application "security" "wireshark" ;;
-                        5) install_application "security" "metasploit" ;;
-                        6) install_application "security" "nikto" ;;
-                        7) install_application "security" "sqlmap" ;;
-                        8) install_application "security" "john" ;;
-                        9) install_application "security" "hashcat" ;;
-                        10) install_application "security" "aircrack-ng" ;;
-                        11) install_application "security" "gobuster" ;;
-                        12) install_application "security" "hydra" ;;
-                        13) install_application "security" "openvas" ;;
-                        14) install_application "security" "lynis" ;;
-                        15) install_application "security" "clamav" ;;
-                        0) break ;;
-                        *) print_color $RED "Invalid option!" ;;
-                    esac
-                done
-                ;;
-            8)
-                while true; do
-                    show_multimedia_menu
-                    read -p "Enter your choice [0-4]: " media_choice
-                    case $media_choice in
-                        1) install_application "multimedia" "vlc" ;;
-                        2) install_application "multimedia" "obs-studio" ;;
-                        3) install_application "multimedia" "gimp" ;;
-                        4) install_application "multimedia" "audacity" ;;
-                        0) break ;;
-                        *) print_color $RED "Invalid option!" ;;
-                    esac
-                done
-                ;;
-            9)
-                while true; do
-                    show_browser_menu
-                    read -p "Enter your choice [0-7]: " browser_choice
-                    case $browser_choice in
-                        1) install_application "browsers" "chrome" ;;
-                        2) install_application "browsers" "firefox-dev" ;;
-                        3) install_application "browsers" "brave" ;;
-                        4) install_application "browsers" "opera" ;;
-                        5) install_application "browsers" "edge" ;;
-                        6) install_application "browsers" "vivaldi" ;;
-                        7) install_application "browsers" "tor" ;;
-                        0) break ;;
-                        *) print_color $RED "Invalid option!" ;;
-                    esac
-                done
-                ;;
-            10)
-                while true; do
-                    show_monitoring_menu
-                    read -p "Enter your choice [0-15]: " mon_choice
-                    case $mon_choice in
-                        1) install_application "system-utilities" "htop" ;;
-                        2) install_application "system-utilities" "glances" ;;
-                        3) install_application "system-utilities" "netdata" ;;
-                        4) install_application "system-utilities" "prometheus-grafana" ;;
-                        5) install_application "system-utilities" "zabbix-agent" ;;
-                        6) install_application "system-utilities" "nagios" ;;
-                        7) install_application "system-utilities" "collectd" ;;
-                        8) install_application "system-utilities" "monit" ;;
-                        9) install_application "system-utilities" "fail2ban" ;;
-                        10) install_application "system-utilities" "logwatch" ;;
-                        11) install_application "system-utilities" "neofetch" ;;
-                        12) install_application "system-utilities" "bashtop" ;;
-                        13) install_application "system-utilities" "iotop" ;;
-                        14) install_application "system-utilities" "nethogs" ;;
-                        15) install_application "system-utilities" "tcpdump" ;;
-                        0) break ;;
-                        *) print_color $RED "Invalid option!" ;;
-                    esac
-                done
-                ;;
-            11) install_bulk "development" ;;
-            12) install_bulk "devops" ;;
-            13) install_bulk "testing" ;;
-            14) install_bulk "security" ;;
-            15) install_bulk "system-utilities" ;;
-            16) handle_multiple_selection ;;
+            1) show_development_menu ;;
+            2) show_database_menu ;;
+            3) show_devops_menu ;;
+            4) show_testing_menu ;;
+            5) show_sysadmin_menu ;;
+            6) show_security_menu ;;
+            7) show_productivity_menu ;;
+            8) show_multimedia_menu ;;
+            9) install_essential_dev ;;
+            10) install_devops_stack ;;
+            11) install_security_stack ;;
+            12) install_full_stack ;;
+            13) update_system ;;
+            14) show_available_apps ;;
             0)
                 print_color $GREEN "Thank you for using Ubuntu Application Installer!"
+                print_color $YELLOW "Created by Deepak Nemade (DN)"
                 exit 0
                 ;;
             *)
@@ -559,6 +210,54 @@ main() {
         esac
     done
 }
+
+# Function to show security menu
+show_security_menu() {
+    while true; do
+        print_header
+        print_color $WHITE "Security & Penetration Testing Tools:"
+        echo
+        print_color $GREEN "1.  Nmap (Network Scanner)"
+        print_color $GREEN "2.  Wireshark (Network Protocol Analyzer)"
+        print_color $GREEN "3.  Burp Suite (Web Security Testing)"
+        print_color $GREEN "4.  OWASP ZAP (Web Application Security)"
+        print_color $GREEN "5.  Metasploit (Penetration Testing Framework)"
+        print_color $GREEN "6.  John the Ripper (Password Cracker)"
+        print_color $GREEN "7.  SQLMap (SQL Injection Tool)"
+        print_color $GREEN "8.  Nikto (Web Server Scanner)"
+        print_color $GREEN "9.  Wazuh (SIEM & Security Monitoring)"
+        print_color $GREEN "10. USB Blocker (USB Port Security)"
+        echo
+        print_color $PURPLE "0.  Back to main menu"
+        echo
+        
+        read -p "Enter your choice [0-10]: " sec_choice
+        case $sec_choice in
+            1) install_application "security" "nmap" ;;
+            2) install_application "security" "wireshark" ;;
+            3) install_application "security" "burpsuite" ;;
+            4) install_application "security" "owasp-zap" ;;
+            5) install_application "security" "metasploit" ;;
+            6) install_application "security" "john" ;;
+            7) install_application "security" "sqlmap" ;;
+            8) install_application "security" "nikto" ;;
+            9) install_application "security" "wazuh" ;;
+            10) install_application "security" "usb-blocker" ;;
+            0) break ;;
+            *) print_color $RED "Invalid option!" ;;
+        esac
+    done
+}
+
+# Placeholder functions for other menus
+show_development_menu() { print_color $RED "Development menu - Coming soon"; read -p "Press Enter..."; }
+show_database_menu() { print_color $RED "Database menu - Coming soon"; read -p "Press Enter..."; }
+show_devops_menu() { print_color $RED "DevOps menu - Coming soon"; read -p "Press Enter..."; }
+show_testing_menu() { print_color $RED "Testing menu - Coming soon"; read -p "Press Enter..."; }
+show_sysadmin_menu() { print_color $RED "System Admin menu - Coming soon"; read -p "Press Enter..."; }
+show_productivity_menu() { print_color $RED "Productivity menu - Coming soon"; read -p "Press Enter..."; }
+show_multimedia_menu() { print_color $RED "Multimedia menu - Coming soon"; read -p "Press Enter..."; }
+install_full_stack() { print_color $RED "Full stack installation - Coming soon"; read -p "Press Enter..."; }
 
 # Run main function
 main "$@"

@@ -1,39 +1,37 @@
 #!/bin/bash
 
-# Docker and Docker Compose Installation Script
-# This script installs Docker CE and Docker Compose on Ubuntu
+# Docker Installation Script - Official Method
+# This script installs Docker Engine using Docker's official installation method
 
 set -e
 
-echo "Installing Docker and Docker Compose..."
+echo "Installing Docker Engine (Official Method)..."
 
-# Update package list
-sudo apt update
+# Uninstall old versions
+sudo apt-get remove -y docker docker-engine docker.io containerd runc 2>/dev/null || true
 
-# Install prerequisites
-sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
+# Update package index
+sudo apt-get update
+
+# Install packages to allow apt to use a repository over HTTPS
+sudo apt-get install -y ca-certificates curl
 
 # Add Docker's official GPG key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-# Add Docker repository
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# Add the repository to Apt sources
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# Update package list
-sudo apt update
+# Update package index
+sudo apt-get update
 
-# Install Docker CE
-sudo apt install -y docker-ce docker-ce-cli containerd.io
+# Install Docker Engine, containerd, and Docker Compose
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Add current user to docker group
 sudo usermod -aG docker $USER
-
-# Install Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
-# Create symbolic link
-sudo ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 # Enable and start Docker service
 sudo systemctl enable docker
@@ -41,8 +39,8 @@ sudo systemctl start docker
 
 # Verify installation
 echo "Docker version: $(docker --version)"
-echo "Docker Compose version: $(docker-compose --version)"
+echo "Docker Compose version: $(docker compose version)"
 
-echo "Docker and Docker Compose installed successfully!"
+echo "Docker Engine installed successfully!"
 echo "Please log out and log back in for group changes to take effect."
-echo "You can then run 'docker run hello-world' to test the installation."
+echo "Test installation with: docker run hello-world"
